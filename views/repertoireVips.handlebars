@@ -1,1 +1,6 @@
-<h1> Mettre ici la première lettre du nom des VIPs </h1>
+<p>
+  Cliquez sur une lettre :
+  {{#each listeLettreVip}}
+      <a href="/repertoire/vip/{{this.VIP_PREMIER_LETTRE}}">{{this.VIP_PREMIER_LETTRE}}</a>
+  {{/each}}
+</p>

@@ -17,6 +17,6 @@
     "unidecode": "*"
   },
   "devDependencies": {
-    "nodemon": "*"
+    "nodemon": "^1.18.9"
   }
 }
