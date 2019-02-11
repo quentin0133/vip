@@ -1,4 +1,24 @@
-<fieldset>
-  <legend>Article</legend>
-  <p>Choisissez un vip pour voir les article le concernant</p>
-</fieldset>
+<div id="containerArticle">
+  <div id="article">
+    <fieldset>
+      <legend>Article</legend>
+      <p>Choisissez un vip pour voir les article le concernant</p>
+    </fieldset>
+  </div>
+
+<div class="flex"></div>
+
+<div id="menuArticle">
+  <div id="imageMenu">
+    <img src="/images/vips.png">
+  </div>
+  <table>
+    {{#each vip}}
+      <tr>
+        <td>
+          <a href="/articles/{{this.VIP_NUMERO}}">{{this.VIP_NOM}} {{this.VIP_PRENOM}}</a>
+        </td>
+      </tr>
+    {{/each}}
+  </table>
+</div>

@@ -149,6 +149,10 @@ a:hover span{
   background:url(/image/footer.jpg) no-repeat;
 }
 
+.flex {
+  flex: 1;
+}
+
 #LogoNode {
   max-height: 20%;
   max-width: 20%;
@@ -171,4 +175,37 @@ a:hover span{
 
 #menuLettre a {
   padding: 0% 0.5%;
+}
+
+#containerArticle {
+  display: flex;
+}
+
+#article {
+  flex: 5;
+}
+
+#menuArticle {
+  border: 1px solid black;
+  border-radius: 10px;
+  flex: 2;
+}
+
+#menuArticle #imageMenu {
+  padding: 2% 0%;
+  border-radius: 10px 10px 0px 0px;
+  background-color: black;
+}
+
+#menuArticle table {
+  margin: auto;
+}
+
+#menuArticle a {
+  color: black;
+  text-decoration: underline;
+}
+
+#menuArticle td {
+  font-size: 14px;
 }

@@ -41,7 +41,7 @@ module.exports.RepertoireTrie = 	function(request, response){
 };
 
 module.exports.DetailVip = 	function(request, response){
-  let idVip = request.params.vip;
+  let idVip = request.params.idVip;
   async.parallel([
     function (callback) {
       model.getListeLettreVip(function(err, result){  // appel le module test qui exécute la requete SQL

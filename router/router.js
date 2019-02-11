@@ -15,13 +15,14 @@ module.exports = function(app){
   // VIP
   app.get('/repertoire', VipController.Repertoire);
   app.get('/repertoire/:lettreVip', VipController.RepertoireTrie);
-  app.get('/repertoire/vip/:vip', VipController.DetailVip);
+  app.get('/repertoire/vip/:idVip', VipController.DetailVip);
 
   // Albums
   app.get('/album', AlbumController.ListerAlbum);
 
   // Article
   app.get('/articles', ArticleController.Article);
+  app.get('/articles/:idVip', ArticleController.Article);
 
   // Tout le reste
   app.get('*', HomeController.NotFound);
