@@ -1,6 +1,16 @@
-<p>
-  Cliquez sur une lettre :
-  {{#each listeLettreVip}}
-      <a href="/repertoire/vip/{{this.VIP_PREMIER_LETTRE}}">{{this.VIP_PREMIER_LETTRE}}</a>
-  {{/each}}
-</p>
+<div id="menuLettre">
+  <p>
+    Cliquez sur une lettre :
+    {{#each listeLettreVip}}
+        <a href="/repertoire/{{this.VIP_PREMIER_LETTRE}}">{{this.VIP_PREMIER_LETTRE}}</a>
+    {{/each}}
+  </p>
+</div>
+{{#each listeVip}}
+  <div class="vipPhotoPrenomNom">
+    <a href="/repertoire/vip/{{this.VIP_NUMERO}}">
+      <img src="/images/vip/{{this.PHOTO_ADRESSE}}" />
+      <p>{{this.VIP_PRENOM}} {{this.VIP_NOM}}</p>
+    </a>
+  </div>
+{{/each}}
