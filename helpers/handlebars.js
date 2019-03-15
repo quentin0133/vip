@@ -10,6 +10,7 @@ function hbsHelpers(handlebars) {
         partialsDir: ['views/partials/'],
 
         helpers: {
+
             inc: function(value, options) {
                 return parseInt(value) + 1;
             },
@@ -74,6 +75,8 @@ function hbsHelpers(handlebars) {
                 switch (operator) {
                     case '==':
                         return (v1 == v2) ? options.fn(this) : options.inverse(this);
+                    case '!=':
+                        return (v1 != v2) ? options.fn(this) : options.inverse(this);
                     case '===':
                         return (v1 === v2) ? options.fn(this) : options.inverse(this);
                     case '<':

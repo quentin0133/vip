@@ -114,6 +114,16 @@ a:hover span{
   width: auto;
 }
 
+#photoVipAlbum img {
+  height: 250px;
+  width: auto;
+  margin: 0px 50px;
+}
+
+#photoVipAlbum button {
+
+}
+
 .menu_haut li a:hover {
   color:#000;
   background:#eee;
@@ -151,6 +161,26 @@ a:hover span{
 
 .flex {
   flex: 1;
+}
+
+.menuAlbum, .menuAlbumNonSelect {
+  width: 75px;
+  height: 100px;
+  margin: 1.5px;
+}
+
+.menuAlbumNonSelect {
+  opacity: 0.5;
+}
+
+.menuAlbumNonSelect:hover {
+  opacity: 0.8;
+}
+
+.photoVip {
+  display: inline-block;
+  width: 85px;
+  cursor: pointer;
 }
 
 #LogoNode {
@@ -201,11 +231,48 @@ a:hover span{
   margin: auto;
 }
 
-#menuArticle a {
+#containerArticle a {
   color: black;
   text-decoration: underline;
 }
 
+#containerArticle p {
+  padding: 0px;
+}
+
 #menuArticle td {
   font-size: 14px;
+}
+
+#nomVipArticle {
+  text-decoration: underline;
+  font-size: 17.5px;
+  text-align: left;
+}
+
+#footArticle {
+  background-color: #DEDCDC;
+  display: flex;
+}
+
+#footArticle p {
+  width: 50%;
+}
+
+#footArticle a {
+  width: 50%;
+  text-align: right;
+}
+
+#menuAlbum {
+  width: 30%;
+}
+
+#flexContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#album p {
+  text-align: center;
 }

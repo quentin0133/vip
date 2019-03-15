@@ -1,10 +1,34 @@
 <div id="flexContainer">
+  <div id="album">
+    <fieldset>
+      <p>{{vip.VIP_NOM}} {{vip.VIP_PRENOM}}</p>
+      <div id="photoVipAlbum">
+        <form method="post" action="/album/{{vip.VIP_NUMERO}}">
+          {{#ifCond session.indicePhoto "!=" 0}}
+            <button type="submit" name="flechePhoto" value="Précédent"><i class="fas fa-angle-double-left"></i></button>
+          {{/ifCond}}
+          <img src="/images/vip/{{vip.PHOTO_ADRESSE}}">
+          {{#ifCond session.indicePhoto "!=" longueurListePhoto}}
+            <button type="submit" name="flechePhoto" value="Suivant"><i class="fas fa-angle-double-right"></i></button>
+          {{/ifCond}}
+        </form>
+      </div>
+      <fieldset>
+        <legend>Commentaire</legend>
+        <p>{{vip.PHOTO_COMMENTAIRE}}</p>
+      </fieldset>
+    </fieldset>
+  </div>
   <div id="menuAlbum">
     <fieldset>
       {{#each listeVip}}
         <form method="post" action="/album/{{this.VIP_NUMERO}}" class="photoVip">
           <input type="hidden" name="vipPhoto" value="change" />
-          <input type="image" class="menuAlbumNonSelect" src="/images/vip/{{this.PHOTO_ADRESSE}}" name="vipPhoto" value="change" />
+          {{#ifCond this.VIP_NUMERO "==" ../vip.VIP_NUMERO}}
+            <input type="image" class="menuAlbum" src="/images/vip/{{this.PHOTO_ADRESSE}}" />
+          {{else}}
+            <input type="image" class="menuAlbumNonSelect" src="/images/vip/{{this.PHOTO_ADRESSE}}" />
+          {{/ifCond}}
           {{#if ../session.indiceListe}}
             <input type="hidden" name="indiceListe" value="{{../session.indiceListe}}" />
           {{else}}
@@ -12,7 +36,7 @@
           {{/if}}
         </form>
       {{/each}}
-      <form method="post" action="/album">
+      <form method="post" action="/album/{{vip.VIP_NUMERO}}">
         {{#if session.indiceListe}}
           <input type="hidden" name="indiceListe" value="{{session.indiceListe}}" />
           {{#ifCond session.indiceListe "!=" 0}}

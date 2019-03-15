@@ -1,0 +1,43 @@
+<div id="containerArticle">
+  <div id="article">
+    {{#if estArticle}}
+      {{#each article}}
+        <fieldset>
+          <legend>Article</legend>
+            <div id="nomVipArticle">
+              <a href="#"><p>{{../vip.VIP_PRENOM}} {{../vip.VIP_NOM}}</p></a>
+            </div>
+            <br>
+            <p>{{this.ARTICLE_RESUME}}</p>
+            <br>
+            <div id="footArticle">
+              <p>[Ajouté le {{formatDate this.ARTICLE_DATE_INSERT 'dddd D MMMM YYYY'}}]</p>
+              <a href="/repertoire/vip/{{../vip.VIP_NUMERO}}">voir sa fiche</a>
+            </div>
+        </fieldset>
+      {{/each}}
+    {{else}}
+      <fieldset>
+        <legend>Article</legend>
+        <p>Aucun article n'a été trouver.</p>
+      </fieldset>
+    {{/if}}
+  </div>
+
+  <div class="flex"></div>
+
+  <div id="menuArticle">
+    <div id="imageMenu">
+      <img src="/images/vips.png">
+    </div>
+    <table>
+      {{#each listeVip}}
+        <tr>
+          <td>
+            <a href="/articles/{{this.VIP_NUMERO}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</a>
+          </td>
+        </tr>
+      {{/each}}
+    </table>
+  </div>
+</div>

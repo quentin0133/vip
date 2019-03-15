@@ -19,10 +19,13 @@ module.exports = function(app){
 
   // Albums
   app.get('/album', AlbumController.ListerAlbum);
+  app.post('/album', AlbumController.ListerAlbum);
+  app.get('/album/:idVip', AlbumController.AlbumVip);
+  app.post('/album/:idVip', AlbumController.AlbumVip);
 
   // Article
   app.get('/articles', ArticleController.Article);
-  app.get('/articles/:idVip', ArticleController.Article);
+  app.get('/articles/:idVip', ArticleController.ArticleVip);
 
   // Tout le reste
   app.get('*', HomeController.NotFound);
