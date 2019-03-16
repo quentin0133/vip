@@ -11,6 +11,7 @@ module.exports = function(appAdmin) {
 
   // Connexion en mode Administration
   appAdmin.get('/connexion', ConnexionController.Connexion);
+  appAdmin.post('/connexion', ConnexionController.Connexion);
 
   // Tout le reste
   appAdmin.get('*', NotFoundController.NotFound);
