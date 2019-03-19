@@ -1,0 +1,104 @@
+<div id="containerFlex">
+  <div id="menuGestionVip">
+    <img src="/images/vips.png">
+    <table>
+      <tr>
+        <td>
+          <a href="/ajoutVip"><p>Ajouter</p></a>
+        </td>
+        <td>
+          <a href="/modificationVip"><p>Modifier</p></a>
+        </td>
+        <td>
+          <a href="/suppressionVip"><p>Supprimer</p></a>
+        </td>
+      </tr>
+    </table>
+    <br>
+  </div>
+
+  <div class="flex"></div>
+
+  <div id="gestionVip">
+    <fieldset>
+      <legend><b>Ajout VIPs</b></legend>
+      <table>
+        <tr>
+          <td><label>Nom* :</label></td>
+          <td><input type="text" name="nom" required /></td>
+        </tr>
+        <tr>
+          <td><label>Prénom* :</label></td>
+          <td><input type="text" name="prenom" required /></td>
+        </tr>
+        <tr>
+          <td><label>Sexe :</label></td>
+          <td>
+            <select name="sexe">
+              <option value="masculin">Masculin</option>
+              <option value="feminin">Féminin</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Date de naissance :</label></td>
+          <td><input type="date" name="dateNaissance" /></td>
+        </tr>
+        <tr>
+          <td><label>Nationnalité :</label></td>
+          <td>
+            <select name="nationnalite">
+              {{#each listeNationalite}}
+                <option value="{{this.NATIONNALITE_NOM}}">{{this.NATIONNALITE_NOM}}</option>
+              {{/each}}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Commentaire :</label></td>
+          <td><textarea name="Text1" cols="40" rows="5"></textarea></td>
+        </tr>
+        <tr>
+          <td><label>Sélectionner l'image* :</label></td>
+          <td>
+            <input type="file" name="photo"  accept="image/jpeg" required />
+          </td>
+        </tr>
+        <tr>
+          <td><label>Sujet de la photo* :</label></td>
+          <td><input type="text" name="sujetPhoto" required /></td>
+        </tr>
+        <tr>
+          <td><label>Commentaire de la photo :</label></td>
+          <td><textarea name="Text1" cols="40" rows="5"></textarea></td>
+        </tr>
+        <tr>
+          <td><label>Métier :</label></td>
+          <td>
+            <select name="metier" id="SelecteurMetier">
+              <option value="Aucun">Aucun</option>
+              <option value="Réalisateur">Réalisateur</option>
+              <option value="Acteur">Acteur</option>
+              <option value="Chanteur">Chanteur</option>
+              <option value="Mannequin">Mannequin</option>
+              <option value="Couturier">Couturier</option>
+            </select>
+          </td>
+        </tr>
+        <div id="formMetier"></div>
+        <tr>
+          <td><label>Liaison ? :</label></td>
+          <td><input type="checkbox" id="estLie" /></td>
+        </tr>
+        <div id="formLiaison"></div>
+        <tr>
+          <td><label>Mariage ? :</label></td>
+          <td><input type="checkbox" id="estMarie" /></td>
+        </tr>
+        <div id="formMariage"></div>
+      </table>
+      <input type="submit" value="Valider" />
+    </fieldset>
+  </div>
+
+</div>

@@ -6,19 +6,20 @@
     </fieldset>
   </div>
 
-<div class="flex"></div>
+  <div class="flex"></div>
 
-<div id="menuArticle">
-  <div id="imageMenu">
-    <img src="/images/vips.png">
+  <div id="menuArticle">
+    <div id="imageMenu">
+      <img src="/images/vips.png">
+    </div>
+    <table>
+      {{#each listeVip}}
+        <tr>
+          <td>
+            <a href="/articles/{{this.VIP_NUMERO}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</a>
+          </td>
+        </tr>
+      {{/each}}
+    </table>
   </div>
-  <table>
-    {{#each listeVip}}
-      <tr>
-        <td>
-          <a href="/articles/{{this.VIP_NUMERO}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</a>
-        </td>
-      </tr>
-    {{/each}}
-  </table>
 </div>

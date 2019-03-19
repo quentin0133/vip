@@ -3,7 +3,7 @@ var async = require("async");
 
 // ////////////////////// L I S T E R     A L B U M S
 
-module.exports.ListerAlbum = 	function(request, response){
+module.exports.ListeAlbum = 	function(request, response){
   response.title = 'Album des stars';
   model.getListeVip(function(err1, result1){  // appel le module test qui exécute la requete SQL
     if (err1) {

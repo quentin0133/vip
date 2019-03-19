@@ -1,0 +1,78 @@
+<div id="containerFlex">
+  <div id="menuGestionVip">
+    <img src="/images/vips.png">
+    <table>
+      <tr>
+        <td>
+          <a href="/ajoutVip"><p>Ajouter</p></a>
+        </td>
+        <td>
+          <a href="/modificationVip"><p>Modifier</p></a>
+        </td>
+        <td>
+          <a href="/suppressionVip"><p>Supprimer</p></a>
+        </td>
+      </tr>
+    </table>
+    <br>
+  </div>
+
+  <div class="flex"></div>
+
+  <div id="gestionVip">
+    <fieldset>
+      <legend><b>Modification VIPs</b></legend>
+      <select name="vipModifier">
+      </select>
+      <table>
+        <tr>
+          <td><label>Nom* :</lable></td>
+          <td><input type="text" name="nom" required /></td>
+        </tr>
+        <tr>
+          <td><label>Prénom* :</lable></td>
+          <td><input type="text" name="prenom" required /></td>
+        </tr>
+        <tr>
+          <td><label>Sexe :</lable></td>
+          <td>
+            <select name="sexe">
+              <option value="masculin">Masculin</option>
+              <option value="feminin">Féminin</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Date de naissance :</lable></td>
+          <td><input type="date" name="dateNaissance" /></td>
+        </tr>
+        <tr>
+          <td><label>Nationnalité :</lable></td>
+          <td>
+            <select name="nationnalite">
+              {{#each listeNationalite}}
+                <option value="{{this.NATIONNALITE_NOM}}">{{this.NATIONNALITE_NOM}}</option>
+              {{/each}}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Commentaire :</lable></td>
+          <td><textarea name="Text1" cols="40" rows="5"></textarea></td>
+        </tr>
+        <tr>
+          <td><label>Sélectionner l'image :</lable></td>
+          <td>
+            <input type="file" name="photo" />
+          </td>
+        </tr>
+        <tr>
+          <td><label>Sujet :</lable></td>
+          <td></td>
+        </tr>
+      </table>
+      <input type="submit" value="Valider" />
+    </fieldset>
+  </div>
+
+</div>

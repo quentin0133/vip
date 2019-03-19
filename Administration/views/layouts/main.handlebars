@@ -10,6 +10,11 @@
         <div id="container">
             <div id="header">
                 <div class="baniere"><img src="/images/sixvoix.png" alt="SIXVOIX l'encyclopédie des stars" /> </div>
+                <div id="profile">
+                  <form method="post">
+                    <p>Bonjour {{session.pseudo}} <input type="submit" name="deconnexion" value="deconnexion" /></p>
+                  </form>
+                </div>
             </div>
             <div class="menu_haut">
               <ul>
@@ -33,5 +38,6 @@
             </div>
         </div>
         <script src="/js/jquery.js"></script>
+        <script src="/js/script.js"></script>
     </body>
 </html>

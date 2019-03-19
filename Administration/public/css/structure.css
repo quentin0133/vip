@@ -33,8 +33,8 @@ body {
 	text-decoration:none;
 	font-weight:bold;
 	display:inline;
-	font-size:14px;
-	padding:10px 10px 10px 10px;
+	font-size:16px;
+	padding:10px 15%;
 	color:#fff;
 	}
 .menu_haut li a {
@@ -99,7 +99,7 @@ a  {
 #connexion table {
   margin: 35px auto;
 }
-
+q
 #connexion td {
   text-align: left;
   width: 100px;
@@ -108,4 +108,97 @@ a  {
 
 #connexion input[type="submit"], #connexionBody input[type="reset"] {
   margin: 0px 15px;
+}
+
+#profile {
+  display: inline-block;
+  color: #ffffff;
+  border: 1px solid white;
+  width: 185px;
+  height: 25px;
+  margin-top: 25px;
+  margin-left: 40%;
+}
+
+#profile p {
+  margin: 5px auto;
+  text-align: center;
+}
+
+#profile input {
+  padding: 0px;
+  padding-left: 2.5px;
+  padding-right: 1px;
+  border: 0px;
+  color: #ffffff;
+  cursor: pointer;
+  font-style: italic;
+  font-size: 12.5px;
+  background-color: #000000 !important;
+}
+
+#menuGestionVip {
+  border: 1px solid black;
+  flex: 2;
+  border-radius: 10px;
+  background-color: black;
+  height: 5%;
+}
+
+#menuGestionVip img {
+  padding: 2% 0%;
+}
+
+#menuGestionVip table {
+  width: 100%;
+  background-color: #000000;
+}
+
+#menuGestionVip td {
+  display: block;
+  border-top: 1px solid white;
+}
+
+#menuGestionVip p {
+  color: white;
+  font-size: 20px;
+  margin: 5px 0px
+}
+
+#containerFlex {
+  display: flex;
+}
+
+#containerFlex a {
+  color: black;
+  text-decoration: underline;
+}
+
+#containerFlex p {
+  padding: 0px;
+}
+
+#gestionVip {
+  flex: 10;
+  text-align: left;
+}
+
+#gestionVip td input, #gestionVip td select, #gestionVip td textarea {
+  margin-bottom: 10px;
+}
+
+textarea {
+  resize: none;
+}
+
+#gestionVip fieldset {
+  padding: 1.5% 1%;
+}
+
+.flex {
+  flex: 1;
+}
+
+#gestionVip td {
+  vertical-align: top;
 }
