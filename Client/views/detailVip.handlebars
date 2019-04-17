@@ -109,7 +109,7 @@
     </p>
   {{/if}}
 
-  {{#ifCond couturier.length ">" 0}}
+  {{#if estCouturier}}
     <p>
       {{#ifCond vip.VIP_SEXE "==" "M"}}
         <b>Profession :</b> Couturier
@@ -140,7 +140,7 @@
         {{/each}}
       {{/if}}
     </p>
-  {{/ifCond}}
+  {{/if}}
 
   {{#ifCond mariage.length ">" 0}}
     <p>

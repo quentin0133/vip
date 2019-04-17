@@ -18,8 +18,8 @@ module.exports = function(app){
   app.get('/repertoire/vip/:idVip', VipController.DetailVip);
 
   // Albums
-  app.get('/album', AlbumController.ListerAlbum);
-  app.post('/album', AlbumController.ListerAlbum);
+  app.get('/album', AlbumController.ListeAlbum);
+  app.post('/album', AlbumController.ListeAlbum);
   app.get('/album/:idVip', AlbumController.AlbumVip);
   app.post('/album/:idVip', AlbumController.AlbumVip);
 

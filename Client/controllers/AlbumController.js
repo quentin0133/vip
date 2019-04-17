@@ -5,7 +5,7 @@ var async = require("async");
 
 module.exports.ListeAlbum = 	function(request, response){
   response.title = 'Album des stars';
-  model.getListeVip(function(err1, result1){  // appel le module test qui exécute la requete SQL
+  model.getListeVip(function(err1, result1){
     if (err1) {
       console.log(err1);
       return;
@@ -29,20 +29,20 @@ module.exports.ListeAlbum = 	function(request, response){
         break;
       default:
     }
-    model.getListeVipReduit(request.session.indiceListe, function(err2, result2){  // appel le module test qui exécute la requete SQL
+    model.getListeVipReduit(request.session.indiceListe, function(err2, result2){
       if (err1) {
         console.log(err2);
         return;
       }
       response.listeVip = result2;
-      response.render('listerAlbum', response);
+      response.render('listeAlbum', response);
     });
   });
 };
 
 module.exports.AlbumVip = function(request, response){
   let idVip = request.params.idVip;
-  model.getListeVip(function(err1, result1){  // appel le module test qui exécute la requete SQL
+  model.getListeVip(function(err1, result1){
     if (err1) {
       console.log(err1);
       return;
@@ -78,12 +78,12 @@ module.exports.AlbumVip = function(request, response){
     }
   async.parallel([
       function (callback) {
-        model.getListeVipReduit(request.session.indiceListe, function(err, result){  // appel le module test qui exécute la requete SQL
+        model.getListeVipReduit(request.session.indiceListe, function(err, result){
           callback(null, result)
         });
       },
       function (callback) {
-        model.getVip(idVip, function(err, result){  // appel le module test qui exécute la requete SQL
+        model.getVip(idVip, function(err, result){
           callback(null, result)
         });
       },

@@ -6,9 +6,13 @@
         <td>
           <a href="/ajoutVip"><p>Ajouter</p></a>
         </td>
+      </tr>
+      <tr>
         <td>
           <a href="/modificationVip"><p>Modifier</p></a>
         </td>
+      </tr>
+      <tr>
         <td>
           <a href="/suppressionVip"><p>Supprimer</p></a>
         </td>
@@ -22,82 +26,271 @@
   <div id="gestionVip">
     <fieldset>
       <legend><b>Ajout VIPs</b></legend>
-      <table>
-        <tr>
-          <td><label>Nom* :</label></td>
-          <td><input type="text" name="nom" required /></td>
-        </tr>
-        <tr>
-          <td><label>Prénom* :</label></td>
-          <td><input type="text" name="prenom" required /></td>
-        </tr>
-        <tr>
-          <td><label>Sexe :</label></td>
-          <td>
+      <form method="post" enctype="multipart/form-data">
+        <div class="flexTableau">
+          <div class="left">
+            <label>Nom* :</label>
+          </div>
+          <div class="right">
+            <input type="text" name="nom" required />
+          </div>
+        </div>
+        <div class="flexTableau">
+          <div class="left">
+            <label>Prénom* :</label>
+          </div>
+          <div class="left">
+            <input type="text" name="prenom" required />
+          </div>
+        </div>
+        <div class="flexTableau">
+          <div class="left">
+            <label>Sexe :</label>
+          </div>
+          <div class="right">
             <select name="sexe">
-              <option value="masculin">Masculin</option>
-              <option value="feminin">Féminin</option>
+              <option value="M">Masculin</option>
+              <option value="F">Féminin</option>
             </select>
-          </td>
-        </tr>
-        <tr>
-          <td><label>Date de naissance :</label></td>
-          <td><input type="date" name="dateNaissance" /></td>
-        </tr>
-        <tr>
-          <td><label>Nationnalité :</label></td>
-          <td>
-            <select name="nationnalite">
+          </div>
+        </div>
+        <div class="flexTableau">
+          <div class="left">
+            <label>Date de naissance* :</label>
+          </div>
+          <div class="right">
+            <input type="date" name="dateNaissance" required />
+          </div>
+        </div>
+        <div class="flexTableau">
+          <div class="left">
+            <label>Nationnalité :</label>
+          </div>
+          <div class="right">
+            <select name="nationalite">
               {{#each listeNationalite}}
-                <option value="{{this.NATIONNALITE_NOM}}">{{this.NATIONNALITE_NOM}}</option>
+                <option value="{{this.NATIONALITE_NUMERO}}">{{this.NATIONALITE_NOM}}</option>
               {{/each}}
             </select>
-          </td>
-        </tr>
-        <tr>
-          <td><label>Commentaire :</label></td>
-          <td><textarea name="Text1" cols="40" rows="5"></textarea></td>
-        </tr>
-        <tr>
-          <td><label>Sélectionner l'image* :</label></td>
-          <td>
-            <input type="file" name="photo"  accept="image/jpeg" required />
-          </td>
-        </tr>
-        <tr>
-          <td><label>Sujet de la photo* :</label></td>
-          <td><input type="text" name="sujetPhoto" required /></td>
-        </tr>
-        <tr>
-          <td><label>Commentaire de la photo :</label></td>
-          <td><textarea name="Text1" cols="40" rows="5"></textarea></td>
-        </tr>
-        <tr>
-          <td><label>Métier :</label></td>
-          <td>
-            <select name="metier" id="SelecteurMetier">
-              <option value="Aucun">Aucun</option>
-              <option value="Réalisateur">Réalisateur</option>
-              <option value="Acteur">Acteur</option>
-              <option value="Chanteur">Chanteur</option>
-              <option value="Mannequin">Mannequin</option>
-              <option value="Couturier">Couturier</option>
-            </select>
-          </td>
-        </tr>
-        <div id="formMetier"></div>
-        <tr>
-          <td><label>Liaison ? :</label></td>
-          <td><input type="checkbox" id="estLie" /></td>
-        </tr>
-        <div id="formLiaison"></div>
-        <tr>
-          <td><label>Mariage ? :</label></td>
-          <td><input type="checkbox" id="estMarie" /></td>
-        </tr>
+          </div>
+        </div>
+        <div class="flexTableau">
+          <div class="left">
+            <label>Commentaire :</label>
+          </div>
+          <div class="right">
+            <textarea name="biographie" cols="40" rows="5"></textarea>
+          </div>
+        </div>
+        <div class="flexTableau">
+          <div class="left">
+            <label>Sélectionner l'image* :</label>
+          </div>
+          <div class="right">
+            <input type="file" name="photo"  accept=".jpeg, .jpg, .png" required />
+          </div>
+        </div>
+        <div class="flexTableau">
+          <div class="left">
+            <label>Sujet de la photo* :</label>
+          </div>
+          <div class="right">
+            <input type="text" name="sujetPhoto" required />
+          </div>
+        </div>
+        <div class="flexTableau">
+          <div class="left">
+            <label>Commentaire de la photo :</label>
+          </div>
+          <div class="right">
+            <textarea name="commentairePhoto" cols="40" rows="5" required></textarea>
+          </div>
+        </div>
+        <div class="flexTableau">
+          <div class="left">
+            <label>Un(e) réalisateur(trice) ? :</label>
+          </div>
+          <div class="right">
+            <input type="checkbox" name="estRealisateur" />
+          </div>
+        </div>
+        <div class="flexTableau">
+          <div class="left">
+            <label>Un(e) acteur(rice) ? :</label>
+          </div>
+          <div class="right">
+            <input type="checkbox" id="estActeur" name="estActeur" />
+          </div>
+        </div>
+        <div class="formSecondaire" id="formActeur">
+          <div class="flexTableau">
+            <div class="left">
+              <label>Date de commencement :</label>
+            </div>
+            <div class="right">
+              <input type="date" id="dateActeur" name="dateActeur" />
+            </div>
+          </div>
+        </div>
+        <div class="flexTableau">
+          <div class="left">
+            <label>Un(e) mannequin ? :</label>
+          </div>
+          <div class="right">
+            <input type="checkbox" id="estMannequin" name="estMannequin" />
+          </div>
+        </div>
+        <div class="formSecondaire" id="formMannequin">
+          <div class="flexTableau">
+            <div class="left">
+              <label>Taille :</label>
+            </div>
+            <div class="right">
+              <input type="number" id="tailleMannequin" name="tailleMannequin" />
+            </div>
+          </div>
+        </div>
+        <div class="flexTableau">
+          <div class="left">
+            <label>Un(e) chanteur(euse) ? :</label>
+          </div>
+          <div class="right">
+            <input type="checkbox" id="estChanteur" name="estChanteur" />
+          </div>
+        </div>
+        <div class="formSecondaire" id="formChanteur">
+          <div class="flexTableau">
+            <div class="left">
+              <label>Spécialité :</label>
+            </div>
+            <div class="right">
+              <input type="text" id="specialiteChanteur" name="specialiteChanteur" />
+            </div>
+          </div>
+        </div>
+        <div class="flexTableau">
+          <div class="left">
+            <label>Un(e) couturier(ère) ? :</label>
+          </div>
+          <div class="right">
+            <input type="checkbox" id="estCouturier" name="estCouturier" />
+          </div>
+        </div>
+        <div class="flexTableau">
+          <div class="left">
+            <label>Liaison ? :</label>
+          </div>
+          <div class="right">
+            <input type="checkbox" id="estLie" name="estLie" />
+          </div>
+        </div>
+        <div class="formSecondaire" id="formLie">
+          <div class="flexTableau">
+            <div class="left">
+              <label>A une liaison avec :</label>
+            </div>
+            <div class="right">
+              <select name="vipLiaison">
+                {{#each listeVip}}
+                  <option value="{{this.VIP_NUMERO}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="flexTableau">
+            <div class="left">
+              <label>Date de la liaison* :</label>
+            </div>
+            <div class="right">
+              <input type="date" id="dateLiaison" name="dateLie" />
+            </div>
+          </div>
+          <div class="flexTableau">
+            <div class="left">
+              <label>S'est séparé(e) ? :</label>
+            </div>
+            <div class="right">
+              <input type="checkbox" id="estSepare" name="estSepare" />
+            </div>
+          </div>
+          <div class="formSecondaire" id="formSepare">
+            <div class="flexTableau">
+              <div class="left">
+                <label>Cause de la séparation* :</label>
+              </div>
+              <div class="right">
+                <input type="text" id="causeSeparation" name="causeSeparation" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flexTableau">
+          <div class="left">
+            <label>Mariage ? :</label>
+          </div>
+          <div class="right">
+            <input type="checkbox" id="estMarie" name="estMarie" />
+          </div>
+        </div>
+        <div class="formSecondaire" id="formMariage">
+          <div class="flexTableau">
+            <div class="left">
+              <label>Est marié avec :</label>
+            </div>
+            <div class="right">
+              <select name="vipMarie">
+                {{#each listeVip}}
+                  <option value="{{this.VIP_NUMERO}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="flexTableau">
+            <div class="left">
+              <label>Lieu du mariage* :</label>
+            </div>
+            <div class="right">
+              <input type="text" id="lieuMariage" name="lieuMariage" />
+            </div>
+          </div>
+          <div class="flexTableau">
+            <div class="left">
+              <label>Date de mariage* :</label>
+            </div>
+            <div class="right">
+              <input type="date" id="dateMariage" name="dateMariage" />
+            </div>
+          </div>
+          <div class="flexTableau">
+            <div class="left">
+              <label>Est divorcé ? :</label>
+            </div>
+            <div class="right">
+              <input type="checkbox" id="estDivorce" name="estDivorce" />
+            </div>
+          </div>
+          <div class="formSecondaire" id="formDivorce">
+            <div class="flexTableau">
+              <div class="left">
+                <label>Date de divorce* :</label>
+              </div>
+              <div class="right">
+                <input type="date" id="dateDivorce" name="dateDivorce" />
+              </div>
+            </div>
+            <div class="flexTableau">
+              <div class="left">
+                <label>Cause du divorce* :</label>
+              </div>
+              <div class="right">
+                <input type="text" id="causeDivorce" name="causeDivorce" />
+              </div>
+            </div>
+          </div>
+        </div>
         <div id="formMariage"></div>
-      </table>
-      <input type="submit" value="Valider" />
+        <input type="submit" />
+      </form>
     </fieldset>
   </div>
 
