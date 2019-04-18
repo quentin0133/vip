@@ -19,7 +19,47 @@
   <div id="gestionVip">
     <fieldset>
       <legend><b>Ajout d'une photo</b></legend>
-      <input type="submit" value="Valider" />
+      <form method="post" enctype="multipart/form-data">
+      <div class="flexTableau">
+        <div class="left">
+          <label>Nom du vip :</label>
+        </div>
+        <div class="right">
+          <select name="vip">
+            {{#each listeVip}}
+              <option value="{{this.VIP_NUMERO}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+      <div class="flexTableau">
+        <div class="left">
+          <label>Nom du vip :</label>
+        </div>
+        <div class="right">
+          <input type="file" name="photo"  accept=".jpeg, .jpg, .png" required />
+        </div>
+      </div>
+      <div class="flexTableau">
+        <div class="left">
+          <label>Titre :</label>
+        </div>
+        <div class="right">
+          <input type="text" name="sujetPhoto" />
+        </div>
+      </div>
+      <div class="flexTableau">
+        <div class="left">
+          <label>Un petit commentaire ? :</label>
+        </div>
+        <div class="right">
+          <textarea name="commentairePhoto" cols="40" rows="5"></textarea>
+        </div>
+      </div>
+      <div id="submits">
+        <input type="submit" />
+        <input type="reset" value="Annuler" />
+      </div>
     </fieldset>
   </div>
 

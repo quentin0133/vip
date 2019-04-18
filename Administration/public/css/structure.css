@@ -203,6 +203,10 @@ textarea {
   vertical-align: top;
 }
 
+#submits {
+  text-align: center;
+}
+
 .flexTableau {
   display: flex;
   justify-content: flex-start;

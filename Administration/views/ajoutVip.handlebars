@@ -49,6 +49,7 @@
           </div>
           <div class="right">
             <select name="sexe">
+              <option value="null">Ne pas répondre</option>
               <option value="M">Masculin</option>
               <option value="F">Féminin</option>
             </select>
@@ -56,10 +57,10 @@
         </div>
         <div class="flexTableau">
           <div class="left">
-            <label>Date de naissance* :</label>
+            <label>Date de naissance :</label>
           </div>
           <div class="right">
-            <input type="date" name="dateNaissance" required />
+            <input type="date" name="dateNaissance" />
           </div>
         </div>
         <div class="flexTableau">
@@ -92,10 +93,10 @@
         </div>
         <div class="flexTableau">
           <div class="left">
-            <label>Sujet de la photo* :</label>
+            <label>Sujet de la photo² :</label>
           </div>
           <div class="right">
-            <input type="text" name="sujetPhoto" required />
+            <input type="text" name="sujetPhoto" />
           </div>
         </div>
         <div class="flexTableau">
@@ -103,7 +104,7 @@
             <label>Commentaire de la photo :</label>
           </div>
           <div class="right">
-            <textarea name="commentairePhoto" cols="40" rows="5" required></textarea>
+            <textarea name="commentairePhoto" cols="40" rows="5"></textarea>
           </div>
         </div>
         <div class="flexTableau">
@@ -289,7 +290,10 @@
           </div>
         </div>
         <div id="formMariage"></div>
-        <input type="submit" />
+        <div id="submits">
+          <input type="submit" />
+          <input type="reset" value="Annuler" />
+          </div>
       </form>
     </fieldset>
   </div>

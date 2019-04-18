@@ -63,7 +63,6 @@ module.exports.AlbumVip = function(request, response){
         break;
       default:
     }
-    console.log(request.body.vipPhoto);
     if(request.session.indicePhoto == null || request.body.vipPhoto != null) {
       request.session.indicePhoto = 0;
     }

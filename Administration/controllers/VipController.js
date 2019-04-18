@@ -22,6 +22,14 @@ module.exports.AjoutVip = function(request, response){
           console.log(err);
           return;
         }
+
+        if(fields.sexe == "null")
+          fields.sexe = null;
+        if(fields.dateNaissance == "")
+          fields.dateNaissance = null;
+        if(fields.biographie == "")
+          fields.biographie = null;
+
         // On récupère les éléments des formulaires pour ajouter le vip
         let vip = [[
           fields.nationalite,
@@ -41,6 +49,11 @@ module.exports.AjoutVip = function(request, response){
 
           // On récupère le dernier id ajouté (ici c'est le vip)
           let idVip = result2.insertId;
+
+          if(fields.sujetPhoto == "")
+            fields.sujetPhoto = null;
+          if(fields.commentairePhoto == "")
+            fields.commentairePhoto = null;
 
           // On ajoute la photo au serveur
           let photo = [[
@@ -171,19 +184,6 @@ module.exports.AjoutVip = function(request, response){
   }
 };
 
-module.exports.SupprimerVip = function(request, response){
-  if(request.body.deconnexion != null) {
-    request.session.estConnecte = false;
-  }
-  if(request.session.estConnecte) {
-    response.title = "Administration SIXVOIX - Suppression d'un vip";
-    response.render('supprimerVip', response);
-  }
-  else {
-    response.redirect("/connexion");
-  }
-};
-
 module.exports.ModifierVip = function(request, response){
   if(request.body.deconnexion != null) {
     request.session.estConnecte = false;
@@ -191,6 +191,19 @@ module.exports.ModifierVip = function(request, response){
   if(request.session.estConnecte) {
     response.title = "Administration SIXVOIX - Modifier d'un vip";
     response.render('modifierVip', response);
+  }
+  else {
+    response.redirect("/connexion");
+  }
+};
+
+module.exports.SupprimerVip = function(request, response){
+  if(request.body.deconnexion != null) {
+    request.session.estConnecte = false;
+  }
+  if(request.session.estConnecte) {
+    response.title = "Administration SIXVOIX - Suppression d'un vip";
+    response.render('supprimerVip', response);
   }
   else {
     response.redirect("/connexion");
