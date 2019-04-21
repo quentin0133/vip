@@ -24,7 +24,8 @@ module.exports = function(appAdmin) {
 
   // Page de suppression d'une photo d'un vip
   appAdmin.get('/suppressionPhoto', PhotoController.SupprimerPhoto);
-  appAdmin.post('/suppressionPhoto', PhotoController.SupprimerPhoto);
+  appAdmin.get('/suppressionPhoto/:vip', PhotoController.SupprimerPhoto);
+  appAdmin.post('/suppressionPhoto/:vip', PhotoController.SupprimerPhoto);
 
   // Connexion en mode Administration
   appAdmin.get('/connexion', ConnexionController.Connexion);

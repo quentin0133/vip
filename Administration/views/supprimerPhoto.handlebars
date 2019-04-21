@@ -7,7 +7,7 @@
           <a href="/ajoutPhoto"><p>Ajouter</p></a>
         </td>
         <td>
-          <a href="/suppressionPhoto"><p>Modifier</p></a>
+          <a href="/suppressionPhoto"><p>Supprimer</p></a>
         </td>
       </tr>
     </table>
@@ -19,7 +19,47 @@
   <div id="gestionVip">
     <fieldset>
       <legend><b>Suppression d'une photo</b></legend>
-      <input type="submit" value="Valider" />
+      <form method="post">
+        <div class="flexTableau">
+          <div class="left">
+            <label>Nom du vip :</label>
+          </div>
+          <div class="right">
+            <select id="listVip">
+              <option value="null">Choissisez un vip</option>
+              {{#each listeVip}}
+                {{#ifCond this.VIP_NUMERO "==" ../idVip}}
+                  <option value="{{this.VIP_NUMERO}}" selected>{{this.VIP_PRENOM}} {{this.VIP_NOM}}</option>
+                {{else}}
+                  <option value="{{this.VIP_NUMERO}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</option>
+                {{/ifCond}}
+              {{/each}}
+            </select>
+          </div>
+        </div>
+        {{#if idVip}}
+          {{#if aPhoto}}
+            <div class="flexTableau">
+              <div class="left">
+                <label>Photo à supprimer :</label>
+              </div>
+              <div class="right">
+                <select name="idPhoto">
+                  {{#each listePhoto}}
+                    <option value="{{this.PHOTO_NUMERO}}">Photo n°{{@index}}</option>
+                  {{/each}}
+                </select>
+              </div>
+            </div>
+            <div id="submits">
+              <input type="submit" />
+              <input type="reset" value="Annuler" />
+            </div>
+          {{else}}
+            <p>Ce vip n'a pas de photo secondaire, <a href="/ajoutPhoto">Ajouter une photo</a> ou changer de vip</p>
+          {{/if}}
+        {{/if}}
+      </form>
     </fieldset>
   </div>
 

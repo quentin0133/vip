@@ -31,6 +31,12 @@ module.exports.AjoutPhoto = function(request, response){
             return;
           }
           let idPhoto = result.length + 1;
+          for(let i = 0; i < result.length; i++) {
+            if(result[i].PHOTO_NUMERO != i + 1) {
+              idPhoto = i + 1;
+              break;
+            }
+          }
           // On ajoute la photo au serveur
           let photo = [[
             idPhoto,
@@ -69,8 +75,52 @@ module.exports.SupprimerPhoto = function(request, response){
     request.session.estConnecte = false;
   }
   if(request.session.estConnecte) {
-    response.title = "Administration SIXVOIX - Suppression d'une photo";
-    response.render('supprimerPhoto', response);
+    model.getListeVip(function(err, result){
+      if (err) {
+        console.log(err);
+        return;
+      }
+      if(request.params.vip && request.params.vip != "null") {
+        response.idVip = request.params.vip;
+        response.listeVip = result;
+        model.getPhotoSecondaire(request.params.vip, function(err2, result2){
+          if (err) {
+            console.log(err);
+            return;
+          }
+          if(request.method == "POST") {
+            model.supprimerPhoto([request.params.vip, request.body.idPhoto], function(err, result){
+              if (err) {
+                console.log(err);
+                return;
+              }
+              // On raffraîchit la liste après avoir supprimer notre élément
+              model.getPhotoSecondaire(request.params.vip, function(err3, result3){
+                if (err) {
+                  console.log(err);
+                  return;
+                }
+                response.aPhoto = result3.length > 0;
+                response.listePhoto = result3;
+                response.title = "Administration SIXVOIX - Suppression d'une photo";
+                response.render('supprimerPhoto', response);
+              });
+            });
+          }
+          else {
+            response.aPhoto = result2.length > 0;
+            response.listePhoto = result2;
+            response.title = "Administration SIXVOIX - Suppression d'une photo";
+            response.render('supprimerPhoto', response);
+          }
+        });
+      }
+      else {
+        response.listeVip = result;
+        response.title = "Administration SIXVOIX - Suppression d'une photo";
+        response.render('supprimerPhoto', response);
+      }
+    });
   }
   else {
     response.redirect("/connexion");

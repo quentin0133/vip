@@ -30,3 +30,25 @@ module.exports.addPhoto = function(data, callback) {
     }
   });
 };
+
+module.exports.getPhotoSecondaire = function(data, callback) {
+  db.getConnection(function(err, connexion) {
+    if (!err) {
+      let sql = "SELECT * FROM photo WHERE PHOTO_NUMERO NOT IN(SELECT PHOTO_NUMERO FROM photo WHERE PHOTO_NUMERO = 1)"
+      + " AND VIP_NUMERO = " + data;
+      connexion.query(sql, data, callback);
+      connexion.release();
+    }
+  });
+};
+
+module.exports.supprimerPhoto = function(data, callback) {
+  db.getConnection(function(err, connexion) {
+    if (!err) {
+      let sql = "DELETE FROM photo WHERE VIP_NUMERO = " + data[0] + " AND PHOTO_NUMERO = " + data[1];
+      console.log(sql);
+      connexion.query(sql, callback);
+      connexion.release();
+    }
+  });
+};

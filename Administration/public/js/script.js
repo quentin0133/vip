@@ -17,14 +17,26 @@ function selectButton() {
   let checkButtonMariage = document.getElementById('estMarie');
 	let checkButtonDivorce = document.getElementById('estDivorce');
 
-	ajouteEvent (checkButtonActeur, 'click', ajoutFormulaireActeur, false);
-	ajouteEvent (checkButtonMannequin, 'click', ajoutFormulaireMannequin, false);
-	ajouteEvent (checkButtonChanteur, 'click', ajoutFormulaireChanteur, false);
+	let selectVip = document.getElementById('listVip');
 
-  ajouteEvent (checkButtonLiaison, 'click', ajoutFormulaireLiaison, false);
-	ajouteEvent (checkButtonSepare, 'click', ajoutFormulaireSepare, false);
-  ajouteEvent (checkButtonMariage, 'click', ajoutFormulaireMariage, false);
-	ajouteEvent (checkButtonDivorce, 'click', ajoutFormulaireDivorce, false);
+	if(checkButtonActeur != null)
+		ajouteEvent (checkButtonActeur, 'click', ajoutFormulaireActeur, false);
+	if(checkButtonMannequin != null)
+		ajouteEvent (checkButtonMannequin, 'click', ajoutFormulaireMannequin, false);
+	if(checkButtonChanteur != null)
+		ajouteEvent (checkButtonChanteur, 'click', ajoutFormulaireChanteur, false);
+
+	if(checkButtonLiaison != null)
+  	ajouteEvent (checkButtonLiaison, 'click', ajoutFormulaireLiaison, false);
+	if(checkButtonSepare != null)
+		ajouteEvent (checkButtonSepare, 'click', ajoutFormulaireSepare, false);
+	if(checkButtonMariage != null)
+		ajouteEvent (checkButtonMariage, 'click', ajoutFormulaireMariage, false);
+	if(checkButtonDivorce != null)
+		ajouteEvent (checkButtonDivorce, 'click', ajoutFormulaireDivorce, false);
+
+	if(selectVip != null)
+		ajouteEvent (selectVip, 'change', ajoutFormulaireSuppressionPhoto, false);
 }
 
 window.onload = function () {
@@ -147,4 +159,9 @@ function ajoutFormulaireDivorce()
 		dateDivorce.required = false;
 		cause.required = false;
 	}
+}
+
+function ajoutFormulaireSuppressionPhoto() {
+	let selectVip = document.getElementById('listVip');
+	window.location.href = "/suppressionPhoto/" + selectVip.options[selectVip.selectedIndex].value;
 }
